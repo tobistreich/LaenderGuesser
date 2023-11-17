@@ -21,7 +21,7 @@ namespace LänderGuesser
     public partial class MainWindow : Window
     {
         int level = 1;
-        string image1Uri = "Images/deutschland.png";
+        string image1Uri = "Images/germany.png";
         public MainWindow()
         {
             InitializeComponent();
