@@ -52,6 +52,7 @@ namespace LänderGuesser
 
                     Image newImage = new Image();
                     newImage.Source = new BitmapImage(new Uri(image1Uri, UriKind.RelativeOrAbsolute)) { CacheOption = BitmapCacheOption.OnLoad };
+                    newImage.Height = 300;
                     Image_StackPanel.Children.Add(newImage);
                 }
             }
