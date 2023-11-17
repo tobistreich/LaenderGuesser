@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\germany.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\germany.png" />
+  </ItemGroup>
+
 </Project>

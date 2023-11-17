@@ -21,7 +21,7 @@ namespace LänderGuesser
     public partial class MainWindow : Window
     {
         int level = 1;
-        string image1Uri = String.Format(@"C:\Users\tobias.streich\Desktop\code\C#\LänderGuesser\LänderGuesser\Images\germany.png");
+        string image1Uri = "Images/deutschland.png";
         public MainWindow()
         {
             InitializeComponent();
@@ -44,11 +44,22 @@ namespace LänderGuesser
 
         private void updateImage()
         {
-            if (level == 1)
+            try
             {
-                Image newImage = new Image();
-                newImage.Source = new BitmapImage(new Uri(image1Uri));
+                if (level == 1)
+                {
+                    Console.WriteLine("Bildpfad: " + System.IO.Path.GetFullPath(image1Uri));
+
+                    Image newImage = new Image();
+                    newImage.Source = new BitmapImage(new Uri(image1Uri, UriKind.RelativeOrAbsolute)) { CacheOption = BitmapCacheOption.OnLoad };
+                    Image_StackPanel.Children.Add(newImage);
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim Laden des Bildes: " + ex.Message);
+            }
+            
         }
     }
 }
