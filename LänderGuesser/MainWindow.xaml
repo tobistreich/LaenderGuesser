@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="Image_StackPanel" Grid.Row="0">
-            <Image x:Name="LevelImage" Visibility="Collapsed" />
+            <Image x:Name="LevelImage" Height="300"/>
         </StackPanel>
         
         <StackPanel x:Name="Controls_StackPanel" Grid.Row="1" Orientation="Horizontal">
@@ -31,14 +31,18 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <Button x:Name="Guess_Button" Content="Guess" FontSize="40" VerticalContentAlignment="Center" Height="60" Width="200" Margin="130, 0, 30, 25" Grid.Column="1" Click="checkInputButtonClicked" IsDefault="True">
+                <Button x:Name="Guess_Button" Content="Guess" FontSize="40" VerticalContentAlignment="Center" Height="50" Width="200" Margin="130, 0, 30, 25" Grid.Column="1" Click="checkInputButtonClicked" IsDefault="True">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button x:Name="Next_Button" Content="Next" Background="Green" FontSize="40" VerticalContentAlignment="Center" Height="60" Width="200" Margin="130, 0, 30, 25" Grid.Column="1" Visibility="Collapsed" Click="nextButtonClicked">
+                <Image x:Name="Heart1"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,30,45" Height="30" Width="30"></Image>
+                <Image x:Name="Heart2"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45,0,30,45" Height="30" Width="30"></Image>
+                <Image x:Name="Heart3"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80,0,30,45" Height="30" Width="30"></Image>
+
+                <Button x:Name="Next_Button" Content="Next" Background="Green" FontSize="40" VerticalContentAlignment="Center" Height="50" Width="200" Margin="130, 0, 30, 25" Grid.Column="1" Visibility="Collapsed" Click="nextButtonClicked" IsDefault="True">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
