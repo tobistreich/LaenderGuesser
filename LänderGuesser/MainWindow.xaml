@@ -14,6 +14,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="Image_StackPanel" Grid.Row="0">
+            <Image x:Name="LevelImage" Visibility="Collapsed" />
         </StackPanel>
         
         <StackPanel x:Name="Controls_StackPanel" Grid.Row="1" Orientation="Horizontal">

@@ -32,35 +32,23 @@ namespace LänderGuesser
             if (level == 1 && Input_TextBox.Text == "DEUTSCHLAND")
             {
                 Next_Button.Visibility = Visibility.Visible;
-
             }
         }
 
         private void nextButtonClicked(object sender, RoutedEventArgs e)
         {
+            Input_TextBox.Clear();
             Next_Button.Visibility = Visibility.Collapsed;
             level++;
         }
 
         private void updateImage()
         {
-            try
+            if (level == 1)
             {
-                if (level == 1)
-                {
-                    Console.WriteLine("Bildpfad: " + System.IO.Path.GetFullPath(image1Uri));
-
-                    Image newImage = new Image();
-                    newImage.Source = new BitmapImage(new Uri(image1Uri, UriKind.RelativeOrAbsolute)) { CacheOption = BitmapCacheOption.OnLoad };
-                    newImage.Height = 300;
-                    Image_StackPanel.Children.Add(newImage);
-                }
+                LevelImage.Source = new BitmapImage(new Uri("Images/germany.png", UriKind.Relative));
+                LevelImage.Visibility = Visibility.Visible;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Fehler beim Laden des Bildes: " + ex.Message);
-            }
-            
         }
     }
 }
