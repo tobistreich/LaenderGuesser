@@ -9,6 +9,7 @@ namespace LänderGuesser
     public partial class MainWindow : Window
     {
         int level = 1;
+        int maxLevel = 15;
         int health = 3;
         string currentDirectory = System.IO.Directory.GetCurrentDirectory();
         public MainWindow()
@@ -22,6 +23,7 @@ namespace LänderGuesser
         }
         private void checkInputButtonClicked(object sender, RoutedEventArgs e)
         {
+            checkMaxLevel();
             if (level == 1 && Input_TextBox.Text == "DEUTSCHLAND" || Input_TextBox.Text == "GERMANY" ||
                 level == 2 && Input_TextBox.Text == "ITALIEN" || Input_TextBox.Text == "ITALY" ||
                 level == 3 && Input_TextBox.Text == "JAPAN" || 
@@ -35,10 +37,7 @@ namespace LänderGuesser
                 level == 11 && Input_TextBox.Text == "INDIEN" || Input_TextBox.Text == "INDIA" ||
                 level == 12 && Input_TextBox.Text == "IRLAND" || Input_TextBox.Text == "IRELAND" ||
                 level == 13 && Input_TextBox.Text == "LUXEMBURG" || Input_TextBox.Text == "LUXEMBOURG" ||
-                level == 14 && Input_TextBox.Text == "MEXIKO" || Input_TextBox.Text == "MEXICO" ||
-                level == 15 && Input_TextBox.Text == "KANADA" || Input_TextBox.Text == "CANADA" ||
-                level == 16 && Input_TextBox.Text == "KANADA" || Input_TextBox.Text == "CANADA" ||
-                level == 17 && Input_TextBox.Text == "KANADA" || Input_TextBox.Text == "CANADA"          
+                level == 14 && Input_TextBox.Text == "MEXIKO" || Input_TextBox.Text == "MEXICO"
                 ) 
             {
                 Next_Button.Visibility = Visibility.Visible;
@@ -78,15 +77,6 @@ namespace LänderGuesser
             else if (level == 10) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/france.jpg")));
             else if (level == 11) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/india.jpg")));
             else if (level == 12) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/ireland.jpg")));
-            else if (level == 13) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 14) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 15) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 16) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 17) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 18) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 8) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 8) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
-            else if (level == 8) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/canada.jpg")));
         }
 
         private void updateHealth()
@@ -115,6 +105,16 @@ namespace LänderGuesser
                 Heart1.Visibility = Visibility.Visible;
                 Heart2.Visibility = Visibility.Collapsed;
                 Heart3.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void checkMaxLevel()
+        {
+            if (level == maxLevel)
+            {
+                MessageBox.Show("Gute Arbeit, du hast alle Level erfolgreich absolviert, dein Score ist: " + level.ToString());
+                MainWindow window = new MainWindow();
+                window.Show();
+                this.Visibility = Visibility.Collapsed;
             }
         }
     }

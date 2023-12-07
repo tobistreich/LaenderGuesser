@@ -23,15 +23,15 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                <TextBox x:Name="Input_TextBox" FontSize="35" CharacterCasing="Upper" Grid.Column="0" HorizontalContentAlignment="Center" Height="50" Width="400" Margin="30, 0, 0, 25">
+
+                <TextBox x:Name="Input_TextBox" FontSize="35" CharacterCasing="Upper" Grid.Column="0" TextAlignment="Center" HorizontalContentAlignment="Center" Height="50" Width="400" Margin="30, 0, 0, 25">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-                <Button x:Name="Guess_Button" Content="Guess" FontSize="40" VerticalContentAlignment="Center" Height="50" Width="200" Margin="130, 0, 30, 25" Grid.Column="1" Click="checkInputButtonClicked" IsDefault="True">
+                <Button x:Name="Guess_Button" Content="Guess" FontSize="40" Height="50" Width="200" Margin="130, 0, 30, 25" Grid.Column="1" Click="checkInputButtonClicked" IsDefault="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
