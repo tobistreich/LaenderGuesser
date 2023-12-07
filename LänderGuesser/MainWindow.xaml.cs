@@ -9,7 +9,7 @@ namespace LänderGuesser
     public partial class MainWindow : Window
     {
         int level = 1;
-        int maxLevel = 15;
+        int maxLevel = 14;
         int health = 3;
         string currentDirectory = System.IO.Directory.GetCurrentDirectory();
         public MainWindow()
@@ -23,7 +23,6 @@ namespace LänderGuesser
         }
         private void checkInputButtonClicked(object sender, RoutedEventArgs e)
         {
-            checkMaxLevel();
             if (level == 1 && Input_TextBox.Text == "DEUTSCHLAND" || Input_TextBox.Text == "GERMANY" ||
                 level == 2 && Input_TextBox.Text == "ITALIEN" || Input_TextBox.Text == "ITALY" ||
                 level == 3 && Input_TextBox.Text == "JAPAN" || 
@@ -42,6 +41,7 @@ namespace LänderGuesser
             {
                 Next_Button.Visibility = Visibility.Visible;
                 Input_TextBox.Background = Brushes.Green;
+                checkMaxLevel();
             }
             else
             {
@@ -77,6 +77,9 @@ namespace LänderGuesser
             else if (level == 10) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/france.jpg")));
             else if (level == 11) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/india.jpg")));
             else if (level == 12) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/ireland.jpg")));
+            else if (level == 13) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/luxembourg.jpg")));
+            else if (level == 14) LevelImage.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/mexico.jpg")));
+
         }
 
         private void updateHealth()
