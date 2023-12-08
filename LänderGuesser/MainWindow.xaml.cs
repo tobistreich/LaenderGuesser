@@ -12,12 +12,14 @@ namespace LänderGuesser
         int level;
         int maxLevel = 14;
         int health = 3;
+        static bool gamePlayed = false;
         string currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
         List<int> availableLevels = new List<int>();
         public MainWindow()
         {
             InitializeComponent();
+            startMessage();
 
             /* put all available Levels into the list */
             for (int i = 1; i <= maxLevel; i++) 
@@ -168,6 +170,26 @@ namespace LänderGuesser
             randomNewLevel();
             updateImage();
             updateHealth();
+        }
+        private void startMessage()
+        {
+            if (!gamePlayed)
+            {
+                MessageBox.Show("Um dieses Spiel zu spielen gib bitte das zu sehende Land auf Deutsch oder Englisch ein, " +
+                "wenn du dir sicher bist drückst du auf den Guess Knopf, um zu sehen ob es dieses Land war," +
+                " wenn nicht wird dir ein Leben abgezogen, Leben hast du insgesamt 3 Stück, sind sie weg: GAME OVER. Wenn das Land korrekt erraten wurde," +
+                " erscheint ein Next Knopf mit dem du auf das nächste Level kommst");
+                gamePlayed = true;
+            }
+
+        }
+
+        private void showHelpMenu(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Um dieses Spiel zu spielen gib bitte das zu sehende Land auf Deutsch oder Englisch ein, " +
+                "wenn du dir sicher bist drückst du auf den Guess Knopf, um zu sehen ob es dieses Land war," +
+                " wenn nicht wird dir ein Leben abgezogen, Leben hast du insgesamt 3 Stück, sind sie weg: GAME OVER. Wenn das Land korrekt erraten wurde," +
+                " erscheint ein Next Knopf mit dem du auf das nächste Level kommst");
         }
     }
 }
