@@ -9,6 +9,7 @@ namespace LänderGuesser
     public partial class MainWindow : Window
     {
         int level = 1;
+        int levelsSolved = 0;
         int maxLevel = 14;
         int health = 3;
         string currentDirectory = System.IO.Directory.GetCurrentDirectory();
@@ -39,6 +40,7 @@ namespace LänderGuesser
                 level == 14 && Input_TextBox.Text == "MEXIKO" || Input_TextBox.Text == "MEXICO"
                 ) 
             {
+                levelsSolved++;
                 Next_Button.Visibility = Visibility.Visible;
                 Input_TextBox.Background = Brushes.Green;
                 checkMaxLevel();
@@ -59,7 +61,7 @@ namespace LänderGuesser
             Guess_Button.Background= Brushes.Transparent;
             Input_TextBox.Clear();
             Next_Button.Visibility = Visibility.Collapsed;
-            level++;
+            randomNewLevel();
             updateImage();
         }
 
@@ -112,13 +114,19 @@ namespace LänderGuesser
         }
         private void checkMaxLevel()
         {
-            if (level == maxLevel)
+            if (levelsSolved == maxLevel)
             {
-                MessageBox.Show("Gute Arbeit, du hast alle Level erfolgreich absolviert, dein Score ist: " + level.ToString());
+                MessageBox.Show("Gute Arbeit, du hast alle Level erfolgreich absolviert, dein Score ist: " + maxLevel.ToString());
                 MainWindow window = new MainWindow();
                 window.Show();
                 this.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void randomNewLevel()
+        {
+            Random rnd = new Random();
+            level = rnd.Next(1, 15);
         }
     }
 }

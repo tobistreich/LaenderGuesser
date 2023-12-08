@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tobias.streich\\Desktop\\code\\C#\\CountryGuessr\\LänderGuesser\\LänderGuesser.csproj": {}
+    "C:\\Users\\tobia\\OneDrive\\Desktop\\code\\C#\\LaenderGuesser\\LänderGuesser\\LänderGuesser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tobias.streich\\Desktop\\code\\C#\\CountryGuessr\\LänderGuesser\\LänderGuesser.csproj": {
+    "C:\\Users\\tobia\\OneDrive\\Desktop\\code\\C#\\LaenderGuesser\\LänderGuesser\\LänderGuesser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tobias.streich\\Desktop\\code\\C#\\CountryGuessr\\LänderGuesser\\LänderGuesser.csproj",
+        "projectUniqueName": "C:\\Users\\tobia\\OneDrive\\Desktop\\code\\C#\\LaenderGuesser\\LänderGuesser\\LänderGuesser.csproj",
         "projectName": "LänderGuesser",
-        "projectPath": "C:\\Users\\tobias.streich\\Desktop\\code\\C#\\CountryGuessr\\LänderGuesser\\LänderGuesser.csproj",
-        "packagesPath": "C:\\Users\\tobias.streich\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tobias.streich\\Desktop\\code\\C#\\CountryGuessr\\LänderGuesser\\obj\\",
+        "projectPath": "C:\\Users\\tobia\\OneDrive\\Desktop\\code\\C#\\LaenderGuesser\\LänderGuesser\\LänderGuesser.csproj",
+        "packagesPath": "C:\\Users\\tobia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tobia\\OneDrive\\Desktop\\code\\C#\\LaenderGuesser\\LänderGuesser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tobias.streich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tobia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
