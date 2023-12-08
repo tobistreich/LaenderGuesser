@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -8,15 +9,26 @@ namespace LänderGuesser
 {
     public partial class MainWindow : Window
     {
-        int level = 1;
-        int levelsSolved = 0;
+        int level;
         int maxLevel = 14;
         int health = 3;
         string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+
+        List<int> availableLevels = new List<int>();
         public MainWindow()
         {
             InitializeComponent();
+
+            /* put all available Levels into the list */
+            for (int i = 1; i <= maxLevel; i++) 
+            {
+                availableLevels.Add(i);
+            }
+
+            // Start the first level
+            randomNewLevel();
             updateImage();
+
             updateHealth();
             Heart1.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/heart.png")));
             Heart2.Source = new BitmapImage(new Uri(System.IO.Path.Combine(currentDirectory, "Images/heart.png")));
@@ -40,10 +52,8 @@ namespace LänderGuesser
                 level == 14 && Input_TextBox.Text == "MEXIKO" || Input_TextBox.Text == "MEXICO"
                 ) 
             {
-                levelsSolved++;
                 Next_Button.Visibility = Visibility.Visible;
                 Input_TextBox.Background = Brushes.Green;
-                checkMaxLevel();
             }
             else
             {
@@ -58,11 +68,28 @@ namespace LänderGuesser
         private void nextButtonClicked(object sender, RoutedEventArgs e)
         {
             Input_TextBox.Background = Brushes.Transparent;
-            Guess_Button.Background= Brushes.Transparent;
+            Guess_Button.Background = Brushes.Transparent;
             Input_TextBox.Clear();
             Next_Button.Visibility = Visibility.Collapsed;
-            randomNewLevel();
-            updateImage();
+
+            if (availableLevels.Count > 0)
+            {
+                randomNewLevel();
+                updateImage();
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Congratulations! You've completed all levels! Do you want to play again?", "Game Over", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    resetGame();
+                }
+                else
+                {
+                    Close();
+                }
+            }
         }
 
         private void updateImage()
@@ -112,21 +139,35 @@ namespace LänderGuesser
                 Heart3.Visibility = Visibility.Collapsed;
             }
         }
-        private void checkMaxLevel()
-        {
-            if (levelsSolved == maxLevel)
-            {
-                MessageBox.Show("Gute Arbeit, du hast alle Level erfolgreich absolviert, dein Score ist: " + maxLevel.ToString());
-                MainWindow window = new MainWindow();
-                window.Show();
-                this.Visibility = Visibility.Collapsed;
-            }
-        }
 
         private void randomNewLevel()
         {
-            Random rnd = new Random();
-            level = rnd.Next(1, 15);
+            // Choose a random level from the available levels
+            int randomLevel = new Random().Next(availableLevels.Count);
+            // Get the level from the list
+            level = availableLevels[randomLevel];
+            // Remove the chosen level from the list to avoid repetition
+            availableLevels.RemoveAt(randomLevel);
+        }
+
+        private void resetGame()
+        {
+            availableLevels.Clear();
+            for (int i = 1; i <= maxLevel; i++)
+            {
+                availableLevels.Add(i);
+            }
+
+            level = 1;
+            health = 3;
+            
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Visibility = Visibility.Collapsed;
+
+            randomNewLevel();
+            updateImage();
+            updateHealth();
         }
     }
 }
